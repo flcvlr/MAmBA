@@ -1,0 +1,61 @@
+Installation notes:
+MAmBA is a wrapper bash script which implements a pipeline for the analysis of 5mC in microRNAs.
+MAmBA can be run on linux and requires the following softwares:
+
+cutadapt 2.0 or later  
+bowtie2 
+tophat2
+GNU parallel
+R
+bisRNA R package
+Samtools v 1.0 or later
+bedtools v 2.26.0 or later
+pigz
+
+you will also need a local copy of a bowtie2 index for Homo sapiens (hg38) or Mus musculus (mm10).
+The path to the bowtie2 index basename should be provided with the -i option when running MamBA.
+MAmBA (and tophat2 invoked by MAmBA) expects a corresponding fasta file with the same basename in 
+the same directory of the bowtie2 index. In case this is missing, MAmBA and tophat will create their own.
+However, this will increase MAmBA running time. In case you want to analyse several samples you can
+easily generate the fasta file by running in terminal
+
+bowtie2-inspect /path/to/your/bowtie2index/basename > /path/to/your/bowtie2index/basename.fa
+
+
+To run MAmBA you should have fastq files obtained by NGS sequencing of bisulfite treated small RNAs.
+Furthermore, MAmBA assumes (but does not check) that your library is stranded (second-strand).
+This is the case for the vast majority of the small RNA-seq protocols on ILLUMINA, in case you are not 
+sure check the library preparation protocol before running MAmBA.
+
+Provided that you have installed the above mentioned softwares, just download MAmBA tarball, 
+extract it to a suitable folder in your file system. MAmBA consists of two executable wrapper
+bash scripts: 
+
+mamba.sh 		to remove adapters, check bisulfite conversion efficiency, align on the genome and
+			summarize 5(h)mC rate at each position. This script will yield tab-delimited summary of 
+			5(h)mC frequency at each microRNA as well as a methylation profile for each pre-microRNA in
+			.png format
+
+mamba_reference.sh 	to build annotation data for MAmBA for your favorite species
+
+running each script with -h option and no arguments will provide detailed information on Usage.
+
+
+Testing MAmBA:
+
+in the MAmBA directory there are two files (Sample_1.fq.gz and Sample_2.fq.gz) which can be used to test installation.
+Just run the following commands:
+
+./mamba.sh -a TGGAATTCTCGGGTGCCAAGG -s hsa -o S1 -f sample_1.fq.gz -i /path/to/hg38/bowtie2index/basename -j 8 -n S1  -c GTCGATACCTCACATTAGATC -l log -C red
+
+./mamba.sh -a TGGAATTCTCGGGTGCCAAGG -s hsa -o S2 -f sample_2.fq.gz -i /path/to/hg38/bowtie2index/basename -j 8 -n S2  -c GTCGATACCTCACATTAGATC -l log -C blue
+
+
+you should end up with two directories (S1 and S2) each containing a summary ("Summary_report.txt") tab delimited file
+with all data on the different C residues tested. Methylation profile figures for some miRNAs are in the subfolders
+ "images/mathylated" and "images/non_methylated".
+
+
+for more details, visit https://sites.google.com/a/uniroma1.it/valeriofulci-eng/software
+
+
