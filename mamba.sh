@@ -9,8 +9,8 @@
 #	-i bowtie2 index for the genome of interest (assuming the corresponding fasta is in the same directory with the same basename. If missing, will be created)
 #	-j number_of_cores
 #	-n short_name to use in images
-#
-#
+#	-l log/linear y axis in pictures
+#	-C color to use in pictures (default: darkgreen)
 #
 #
 #
