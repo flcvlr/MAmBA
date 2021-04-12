@@ -43,8 +43,8 @@ running each script with -h option and no arguments will provide detailed inform
 
 Testing MAmBA:
 
-in the MAmBA directory there are two files (Sample_1.fq.gz and Sample_2.fq.gz) which can be used to test installation.
-Just run the following commands:
+hsa annotation and sample fastq.gz files for testing can be downloaded here: https://sites.google.com/a/uniroma1.it/valeriofulci-eng/software
+extract hsa annotation in the MAmBA directory along with the sample files, then run the following commands:
 
 ./mamba.sh -a TGGAATTCTCGGGTGCCAAGG -s hsa -o S1 -f sample_1.fq.gz -i /path/to/hg38/bowtie2index/basename -j 8 -n S1  -c GTCGATACCTCACATTAGATC -l log -C red
 
