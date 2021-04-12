@@ -26,9 +26,9 @@ Mandatory Arguments:
 
   -s species (hsa|mmu)
 	Currently there are only references for human (hg38) and mouse (mm10) which are 
-	distributed with MAmBA. However, MAmBA includes a script (mamba_reference.sh) 
-	to generate custom annotation provided that you have annotation files for your 
-	favorite species. 
+	distributed here: https://sites.google.com/a/uniroma1.it/valeriofulci-eng/software 
+	However, MAmBA includes a script (mamba_reference.sh) to generate custom annotation 
+	provided that you have annotation files for your favorite species. 
 	For details please run:
 	
 	mamba_reference.sh -h 
