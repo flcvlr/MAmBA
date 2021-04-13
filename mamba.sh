@@ -67,7 +67,12 @@ shift $((OPTIND-1))
 if [ -z $color ]; then
 	color="darkgreen";
 fi
-	
+
+
+if [ -z $log ]; then
+	color="log";
+fi
+
 if [ ! -s $infile ]; then
 	1>&2 echo -e "\n\n\tError: Failed to launch MAmBA: input $infile does not exist or is empty. Please check filename and/or path.\n\n";
 	exit;
