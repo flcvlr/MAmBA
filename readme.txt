@@ -59,10 +59,10 @@ Command line options:
 	sequence of an endogenous non-methylated small RNA can be provided 
 	(e.g. tRNA(Gly) 5' fragment)
 
-  -l log/linear
-	If set to "log" a log y axis (non-conversion frequency) will be used in figures. 
-	Any other value will result in linear y axis
-
+  -l log/linear (default: log)
+	If set to any value other than "log" a linear y axis (non-conversion frequency) 
+	will be used in figures. 
+	
   -C color (default: darkgreen)
 	If set the argument will be passed to R as the color to use for bars in figures
 	(useful to plot multiple samples in different colors)
