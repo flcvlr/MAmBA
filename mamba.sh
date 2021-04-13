@@ -70,7 +70,7 @@ fi
 
 
 if [ -z $log ]; then
-	color="log";
+	log="log";
 fi
 
 if [ ! -s $infile ]; then
